@@ -1,0 +1,10 @@
+{
+  "name": "mongo1",
+  "connector": "mongodb",
+  "url": "mongodb://localhost:27017/hot-el",
+  "host": "localhost",
+  "port": 27017,
+  "user": "",
+  "password": "",
+  "database": "hot-el"
+}
