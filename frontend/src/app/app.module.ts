@@ -9,7 +9,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RoomsComponent } from './rooms/rooms.component';
-import { Room } from './room.detail/room.detail.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { RoomDetailComponent } from './room-detail/room-detail.component';
     LoginComponent,
     RegisterComponent,
     RoomsComponent,
-    Room.DetailComponent,
     RoomDetailComponent
   ],
   imports: [
