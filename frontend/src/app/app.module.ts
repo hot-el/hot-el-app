@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { RoomsComponent } from './rooms/rooms.component';
+import { Room } from './room.detail/room.detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RoomsComponent,
+    Room.DetailComponent
   ],
   imports: [
     BrowserModule,
