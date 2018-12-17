@@ -8,7 +8,7 @@ import { NavbarService } from './_services/navbar.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.styl']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   title = 'Hot-El';

@@ -5,7 +5,7 @@ import { Room } from '../_models/room';
 @Component({
   selector: 'app-rooms',
   templateUrl: './rooms.component.html',
-  styleUrls: ['./rooms.component.styl']
+  styleUrls: ['./rooms.component.css']
 })
 export class RoomsComponent implements OnInit {
 
