@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatButtonModule, MatCheckboxModule, MatListModule, MatCardModule } from '@angular/material'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatListModule, MatCardModule,
+  MatTabsModule, MatToolbarModule, MatSidenavModule, MatIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -15,6 +16,8 @@ import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { ManagerComponent } from './manager/manager.component';
 import { UserComponent } from './user/user.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RoomDetailComponent,
     ManagerComponent,
     UserComponent,
-    DashboardComponent
+    DashboardComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,12 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatButtonModule,
     MatListModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTabsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule
   ],
   entryComponents: [
     LoginComponent,
