@@ -1,3 +1,5 @@
+import { Component, OnInit, Input } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { NavbarService } from '../_services/navbar.service';
 import { ManagerComponent } from '../manager/manager.component';
