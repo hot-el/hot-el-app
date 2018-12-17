@@ -1,13 +1,27 @@
-<div *ngIf="isLoggedIn; else loggedOut">
+<mat-card *ngIf="isLoggedIn; else loggedOut">
   Logged in as {{role}}.
-</div>
+</mat-card>
  
-<ng-template #loggedOut>
-  <button class="btn btn-secondary" (click)="loginUser()">Login as User</button>
-  <button class="btn btn-primary" (click)="loginManager()">Login as Manager</button>
-  <hr />
-  <p>Don't have an account?</p>
-  <!-- <a href="signup" class="btn btn-success">Sign Up</a> -->
-  <button class="btn btn-success" (click)="registerUser()">Sign up</button>
-  <!-- <a class="nav-link" routerLink="register" >Sign up</a> -->
-</ng-template>
+<mat-card>
+  <ng-template #loggedOut>
+    <button mat-stroked-button class="btn btn-secondary" (click)="loginUser()">Login as User</button>
+    <button mat-stroked-button class="btn btn-primary" (click)="loginManager()">Login as Manager</button>
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title>Don't have an account?</mat-card-title>
+          <mat-card-subtitle>Sign up!</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+            bred for hunting.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" class="btn btn-success" (click)="registerUser()">Sign up</button>
+        </mat-card-actions>
+      </mat-card>
+  </ng-template>
+</mat-card>
+

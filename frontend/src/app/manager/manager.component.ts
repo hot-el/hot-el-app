@@ -13,3 +13,4 @@ export class ManagerComponent implements OnInit {
   }
 
 }
+
