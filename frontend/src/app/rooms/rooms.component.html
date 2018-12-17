@@ -1,10 +1,14 @@
-<h2>Kliknij na pokój</h2>
-
-<ul class="rooms">
-  <li *ngFor="let room of rooms"
-    [class.selected]="room === roomSelected"
-    (click)="onSelect(room)">
-    <span class="badge">{{room.roomNumber}}</span> {{room.floor}}
-  </li>
-</ul>
-<app-room-detail [room] = "selectedRoom"></app-room-detail>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Pokoje</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-action-list>
+            <button mat-list-item *ngFor="let room of rooms"
+              (click)="onSelect(room)">
+                Room {{room.roomNumber}}
+            </button>
+        </mat-action-list>
+        <app-room-detail [room]="selectedRoom"></app-room-detail>
+    </mat-card-content>
+</mat-card>

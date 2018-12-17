@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatButtonModule, MatCheckboxModule } from '@angular/material'
+import { MatButtonModule, MatCheckboxModule, MatListModule, MatCardModule } from '@angular/material'
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -33,6 +33,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatListModule,
+    MatCardModule,
     MatCheckboxModule
   ],
   entryComponents: [
