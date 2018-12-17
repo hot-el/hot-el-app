@@ -1,3 +1,13 @@
-<p>
-  login works!
-</p>
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{role}}.
+</div>
+ 
+<ng-template #loggedOut>
+  <button class="btn btn-secondary" (click)="loginUser()">Login as User</button>
+  <button class="btn btn-primary" (click)="loginManager()">Login as Manager</button>
+  <hr />
+  <p>Don't have an account?</p>
+  <!-- <a href="signup" class="btn btn-success">Sign Up</a> -->
+  <button class="btn btn-success" (click)="registerUser()">Sign up</button>
+  <!-- <a class="nav-link" routerLink="register" >Sign up</a> -->
+</ng-template>
