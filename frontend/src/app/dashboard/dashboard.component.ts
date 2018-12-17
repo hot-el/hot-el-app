@@ -1,4 +1,3 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavbarService } from '../_services/navbar.service';
 import { ManagerComponent } from '../manager/manager.component';
@@ -8,8 +7,9 @@ import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.styl']
+  styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
 
   links: Array<{ text: string, path: string }>;
