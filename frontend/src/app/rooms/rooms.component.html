@@ -1,0 +1,10 @@
+<h2>Kliknij na pokój</h2>
+
+<ul class="rooms">
+  <li *ngFor="let room of rooms"
+    [class.selected]="room === roomSelected"
+    (click)="onSelect(room)">
+    <span class="badge">{{room.roomNumber}}</span> {{room.floor}}
+  </li>
+</ul>
+<app-room-detail [room] = "selectedRoom"></app-room-detail>
