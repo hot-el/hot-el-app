@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Employee } from '../employee';
 import { EmployeeService } from '../_services/employee.service';
+import { Employee } from '../../../sdk';
 
 @Component({
   selector: 'app-employees',
@@ -22,6 +22,11 @@ export class EmployeesComponent implements OnInit {
     this.employeeService.getEmployees()
         .subscribe(employees => this.employees = employees);
   }
+
+  // getEmployees2(): void {
+  //   this.employeeService.getEmployees2()
+  //       .subscribe(employees => this.employees = employees);
+  // }
 
   add(name: string): void {
     name = name.trim();

@@ -21,4 +21,9 @@ export class EmployeesDashboardComponent implements OnInit {
     this.employeeService.getEmployees()
       .subscribe(employees => this.employees = employees.slice(1, 5));
   }
+
+  // getEmployees2(): void {
+  //   this.employeeService.getEmployees2();
+  // }
+
 }

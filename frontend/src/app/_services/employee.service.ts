@@ -4,8 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Employee } from '../employee';
+// import { Employee } from '../employee';
 import { MessageService } from './message.service';
+
+import { EmployeeApi, Employee, LoopBackFilter } from '../../../sdk';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,11 +19,19 @@ export class EmployeeService {
   private employeesUrl = 'api/employees';  // URL to web api
 
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private http: HttpClient
+    ) { }
 
   /** GET employees from the server */
-  getEmployees (): Observable<Employee[]> {
+  // getEmployees (): Observable<Employee[]> {
+  //   return this.http.get<Employee[]>(this.employeesUrl)
+  //     .pipe(
+  //       tap(_ => this.log('fetched employees')),
+  //       catchError(this.handleError('getEmployees', []))
+  //     );
+  // }
+    getEmployees (): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.employeesUrl)
       .pipe(
         tap(_ => this.log('fetched employees')),
@@ -30,7 +40,7 @@ export class EmployeeService {
   }
 
   /** GET employee by id. Return `undefined` when id not found */
-  getHeroNo404<Data>(id: number): Observable<Employee> {
+  getEmployeeNo404<Data>(id: number): Observable<Employee> {
     const url = `${this.employeesUrl}/?id=${id}`;
     return this.http.get<Employee[]>(url)
       .pipe(
