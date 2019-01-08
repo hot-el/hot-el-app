@@ -20,7 +20,8 @@ export class EmployeeService {
 
   constructor(
     private messageService: MessageService,
-    private http: HttpClient
+    private http: HttpClient,
+    private employeeApi: EmployeeApi
     ) { }
 
   /** GET employees from the server */

@@ -28,6 +28,9 @@ import { EmployeeSearchComponent } from './employee-search/employee-search.compo
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './_services/in-memory-data.service';
 
+import { EmployeeService } from './_services/employee.service';
+import { SharedModule } from './shared/shared.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +64,7 @@ import { InMemoryDataService } from './_services/in-memory-data.service';
     MatIconModule,
     FormsModule,
     HttpClientModule,
+    SharedModule,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
