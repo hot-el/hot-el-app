@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee } from '../employee';
+import { Employee } from '../../../sdk';
 import { EmployeeService } from '../_services/employee.service';
+
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-employees-dashboard',
@@ -11,7 +13,10 @@ export class EmployeesDashboardComponent implements OnInit {
 
   employees: Employee[] = [];
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(
+    private employeeService: EmployeeService,
+    private location: Location
+    ) { }
 
   ngOnInit() {
     this.getEmployees();
@@ -19,11 +24,11 @@ export class EmployeesDashboardComponent implements OnInit {
 
   getEmployees(): void {
     this.employeeService.getEmployees()
-      .subscribe(employees => this.employees = employees.slice(1, 5));
+      .subscribe(employees => this.employees = employees.slice(1, 6));
   }
 
-  // getEmployees2(): void {
-  //   this.employeeService.getEmployees2();
-  // }
+  goBack(): void {
+    this.location.back();
+  }
 
 }

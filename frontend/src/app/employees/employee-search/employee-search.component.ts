@@ -6,8 +6,8 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
-import { Employee } from '../employee';
-import { EmployeeService } from '../_services/employee.service';
+import { Employee } from '../../../../sdk';
+import { EmployeeService } from '../../_services/employee.service';
 
 @Component({
   selector: 'app-employee-search',
@@ -15,10 +15,13 @@ import { EmployeeService } from '../_services/employee.service';
   styleUrls: [ './employee-search.component.css' ]
 })
 export class EmployeeSearchComponent implements OnInit {
+
   employees$: Observable<Employee[]>;
   private searchTerms = new Subject<string>();
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService
+    ) {}
 
   // Push a search term into the observable stream.
   search(term: string): void {

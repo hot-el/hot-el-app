@@ -1,24 +1,24 @@
-<h2>My Employees</h2>
-<nav>
-    <a routerLink="/employees">Employees</a>
-    <a routerLink="/dashboard">Employees dashboard</a>
-</nav>
-<div>
-    <label>Employee name:
-      <input #employeeName />
-    </label>
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(employeeName.value); employeeName.value=''">
-      add
-    </button>
-  </div>
-
-<ul class="employees">
-  <li *ngFor="let employee of employees">
-    <a routerLink="/detail/{{employee.id}}">
-      <span class="badge">{{employee.id}}</span> {{employee.name}}
-    </a>
-    <button class="delete" title="delete employee"
-      (click)="delete(employee)">x</button>
-  </li>
-</ul>
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Employees</mat-card-title>
+      <mat-card-subtitle>Board</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <a mat-raised-button routerLink="/manager">Manager Board</a>
+      <a mat-raised-button routerLink="/dashboard">Employees dashboard</a>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="openNewEmployeeModal(categorySlug)">New Employee</button>
+        <app-employee-search></app-employee-search>
+        <mat-card-content>
+        <h1> List of Employees </h1>
+        </mat-card-content>
+        <mat-nav-list>
+            <mat-divider></mat-divider>
+            <a mat-list-item href="/detail/{{employee.id}}" *ngFor="let employee of employees"> 
+              <i class="material-icons">face </i> {{employee.name}}
+              <mat-divider></mat-divider>
+            </a>
+         </mat-nav-list>
+    </mat-card-actions>
+  </mat-card>

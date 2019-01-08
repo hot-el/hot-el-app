@@ -1,4 +1,44 @@
-/* EmployeeDetailComponent's private CSS styles */
+/* EmployeeSearch private styles */
+.search-result li {
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  width: 300px;
+  height: 30px;
+  padding: 5px;
+  background-color: #eee;
+  cursor: pointer;
+  list-style-type: none;
+}
+ 
+.search-result li:hover {
+  background-color: #eee;
+}
+ 
+.search-result li a {
+  color: rgb(17, 15, 15);
+  display: block;
+  text-decoration: none;
+}
+ 
+.search-result li a:hover {
+  color: rgb(8, 8, 8);
+}
+.search-result li a:active {
+  color: rgb(19, 17, 17);
+}
+#search-box {
+  width: 300px;
+  height: 30px;
+  padding: 5px;
+}
+ 
+ 
+ul.search-result {
+  margin-top: 0;
+  padding-left: 0;
+}
+
 label {
   display: inline-block;
   width: 3em;
@@ -52,4 +92,4 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
+} 

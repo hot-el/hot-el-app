@@ -15,4 +15,4 @@ if (environment.production) {
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 
-// LoopBackConfig.setBaseURL(environment.api_url);
+LoopBackConfig.setBaseURL(environment.api_url);

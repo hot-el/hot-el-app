@@ -3,16 +3,24 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../_services/employee.service';
 import { Employee } from '../../../sdk';
 
+import { NewEmployeeModalComponent } from './new-employee/new-employee-modal.component';
+
+import { MatDialog } from '@angular/material';
+
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
-  styleUrls: ['./employees.component.css']
+  styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
 
   employees: Employee[];
+  name: string;
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(
+    private employeeService: EmployeeService,
+    public dialog: MatDialog
+    ) { }
 
   ngOnInit() {
     this.getEmployees();
@@ -23,23 +31,23 @@ export class EmployeesComponent implements OnInit {
         .subscribe(employees => this.employees = employees);
   }
 
-  // getEmployees2(): void {
-  //   this.employeeService.getEmployees2()
-  //       .subscribe(employees => this.employees = employees);
-  // }
-
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.employeeService.addEmployee({ name } as Employee)
+    this.employeeService.createEmployee({ name } as Employee)
       .subscribe(employee => {
         this.employees.push(employee);
       });
   }
 
-  delete(employee: Employee): void {
-    this.employees = this.employees.filter(h => h !== employee);
-    this.employeeService.deleteEmployee(employee).subscribe();
+  openNewEmployeeModal(categorySlug) {
+    const dialogRef = this.dialog.open(NewEmployeeModalComponent, {
+      data: { categorySlug: categorySlug }
+    });
+
+    dialogRef.afterClosed().subscribe(employee => {
+      this.employees.push(employee);
+    });
   }
 
 }

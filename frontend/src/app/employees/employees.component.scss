@@ -3,7 +3,7 @@ h2 {
   font-size: 2em;
   margin-top: 0;
   padding-top: 0;
-  color: #597;
+  color: #999;
 }
 .employees {
   margin: 0 0 2em 0;
@@ -32,7 +32,7 @@ h2 {
   text-decoration: none;
   position: relative;
   display: block;
-  width: 250px;
+  width: 2000px;
 }
  
 .employees a:hover {
@@ -72,8 +72,57 @@ button:hover {
  
 button.delete {
   position: relative;
-  left: 194px;
+  left: 250px;
   top: -32px;
   background-color: gray !important;
   color: white;
+}
+
+nav a {
+  padding: 5px 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.active {
+  color: #039be5;
+}
+
+@import '../styles/_variables';
+
+.category-questions {
+  .list {
+    margin-top: 30px;
+  }
+  .list-item {
+    margin-bottom: 10px;
+    &:not(:first-child) {
+      border-top: 1px solid $grey4;
+    }
+
+    .icons-line {
+      margin-top: 10px;
+      .list-single-icon {
+        color: $grey5;
+        font-size: 20px;
+      }
+      .list-single-icon-number {
+        color: $grey5;
+        vertical-align: top;
+
+        &:not(:last-child) {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
 }

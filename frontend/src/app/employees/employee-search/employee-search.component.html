@@ -5,9 +5,12 @@
  
   <ul class="search-result">
     <li *ngFor="let employee of employees$ | async" >
-      <a routerLink="/detail/{{employee.id}}">
-        {{employee.name}}
+      <a mat-list-item href="/detail/{{employee.id}}">
+        <i class="material-icons">face</i>
+          <span>{{employee.name}}</span> |
+          <small>name: {{employee.name}}</small>
       </a>
     </li>
   </ul>
 </div>
+
