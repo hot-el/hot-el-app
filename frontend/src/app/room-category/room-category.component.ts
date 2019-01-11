@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CategoryModel } from './category.model';
 import { CategoriesService } from '../_services/categories.service';
+import { NewRoomModalComponent } from './new-room/new-room-modal.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-room-category',
@@ -16,7 +18,8 @@ export class RoomCategoryComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private categoriesService: CategoriesService
+    private categoriesService: CategoriesService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -26,5 +29,10 @@ export class RoomCategoryComponent implements OnInit {
           this.categories = categories;
       });
       console.log(this.categories);
+    }
+
+    openNewRoomModal() {
+      console.log('hello');
+      this.dialog.open(NewRoomModalComponent);
     }
 }

@@ -30,12 +30,11 @@ import { EmployeeSearchComponent } from './employees/employee-search/employee-se
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './_services/in-memory-data.service';
 
-import { NewEmployeeModalComponent } from './employees/new-employee/new-employee-modal.component';
 import { DeleteEmployeeModalComponent } from './employee-detail/delete-employee/delete-employee-modal.component';
-import { UpdateEmployeeModalComponent } from './employee-detail/update-employee/update-employee-modal.component';
+import { NewRoomModalComponent } from './room-category/new-room/new-room-modal.component';
 
-import { EmployeeFormComponent } from './employee-form/employee-form.component';
-import { UpdateEmployeeFormComponent } from './employee-form/update-employee/update-employee-form.component';
+import { NewEmployeeFormComponent } from './employee-form/new-employee-form/new-employee-form.component';
+import { UpdateEmployeeFormComponent } from './employee-form/update-employee-form/update-employee-form.component';
 
 import { EmployeeService } from './_services/employee.service';
 import { SharedModule } from './shared/shared.module';
@@ -59,12 +58,12 @@ import { CategoriesService } from './_services/categories.service';
     EmployeesDashboardComponent,
     MessagesComponent,
     EmployeeSearchComponent,
-    NewEmployeeModalComponent,
+
     DeleteEmployeeModalComponent,
-    UpdateEmployeeModalComponent,
     RoomCategoryComponent,
-    EmployeeFormComponent,
-    UpdateEmployeeFormComponent
+    NewEmployeeFormComponent,
+    UpdateEmployeeFormComponent,
+    NewRoomModalComponent
   ],
   imports: [
     BrowserModule,
@@ -96,9 +95,9 @@ import { CategoriesService } from './_services/categories.service';
     LoginComponent,
     UserComponent,
     ManagerComponent,
-    NewEmployeeModalComponent,
     DeleteEmployeeModalComponent,
-    UpdateEmployeeModalComponent,
+    NewRoomModalComponent,
+    UpdateEmployeeFormComponent
   ],
   providers: [
     CategoriesService,

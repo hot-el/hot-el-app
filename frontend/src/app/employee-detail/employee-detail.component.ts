@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 import { Employee } from '../../../sdk';
 import { EmployeeService } from '../_services/employee.service';
 
-import { UpdateEmployeeModalComponent } from './update-employee/update-employee-modal.component';
+import { UpdateEmployeeFormComponent } from '../employee-form/update-employee-form/update-employee-form.component';
 import { DeleteEmployeeModalComponent } from './delete-employee/delete-employee-modal.component';
 import { MatDialog } from '@angular/material';
 
@@ -57,14 +57,13 @@ export class EmployeeDetailComponent implements OnInit {
       .subscribe(() => this.goBack());
   }
 
-  openUpdateEmployeeModal(employee_: Employee) {
+  openUpdateEmployeeForm(employee_: Employee) {
     console.log('ej');
     console.log(employee_.name);
     console.log(employee_);
-    const dialogRef = this.dialog.open(UpdateEmployeeModalComponent, {
+    const dialogRef = this.dialog.open(UpdateEmployeeFormComponent, {
       data: { employee: employee_ }
     });
-
   }
 
   delete(employee: Employee): void {

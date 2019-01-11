@@ -8,7 +8,7 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 import { ManagerComponent } from './manager/manager.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomCategoryComponent } from './room-category/room-category.component';
-import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { NewEmployeeFormComponent } from './employee-form/new-employee-form/new-employee-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,7 +20,8 @@ const routes: Routes = [
   { path: 'manager', component: ManagerComponent },
   { path: 'rooms', component: RoomsComponent },
   { path: 'room-categories', component: RoomCategoryComponent },
-  { path: 'employee-form', component: EmployeeFormComponent }
+  { path: 'employee-form', component: NewEmployeeFormComponent },
+  { path: 'rooms/:categorySlug/all', component: RoomsComponent }
 ];
 
 @NgModule({

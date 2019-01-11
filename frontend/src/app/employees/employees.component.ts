@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../_services/employee.service';
 import { Employee } from '../../../sdk';
 
-import { NewEmployeeModalComponent } from './new-employee/new-employee-modal.component';
+import { NewEmployeeFormComponent } from '../employee-form/new-employee-form/new-employee-form.component';
 
 import { MatDialog } from '@angular/material';
 
@@ -40,13 +40,11 @@ export class EmployeesComponent implements OnInit {
       });
   }
 
-  openNewEmployeeModal(categorySlug) {
-    const dialogRef = this.dialog.open(NewEmployeeModalComponent, {
-      data: { categorySlug: categorySlug }
-    });
+  openNewEmployeeForm() {
+    const dialogRef = this.dialog.open(NewEmployeeFormComponent);
 
     dialogRef.afterClosed().subscribe(employee => {
-      if (employee !==  null) {
+      if (employee !==  null && employee !== undefined && employee !== '') {
         this.employees.push(employee);
       }
     });
