@@ -31,7 +31,9 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './_services/in-memory-data.service';
 
 import { DeleteEmployeeModalComponent } from './employee-detail/delete-employee/delete-employee-modal.component';
-import { NewRoomModalComponent } from './room-category/new-room/new-room-modal.component';
+import { NewRoomFormComponent } from './room-category/new-room/new-room-form.component';
+import { DeleteRoomModalComponent } from './room-detail/delete-room/delete-room-modal.component';
+import { UpdateRoomFormComponent } from './room-detail/update-room/update-room-form.component';
 
 import { NewEmployeeFormComponent } from './employee-form/new-employee-form/new-employee-form.component';
 import { UpdateEmployeeFormComponent } from './employee-form/update-employee-form/update-employee-form.component';
@@ -58,12 +60,13 @@ import { CategoriesService } from './_services/categories.service';
     EmployeesDashboardComponent,
     MessagesComponent,
     EmployeeSearchComponent,
-
+    DeleteRoomModalComponent,
     DeleteEmployeeModalComponent,
     RoomCategoryComponent,
     NewEmployeeFormComponent,
     UpdateEmployeeFormComponent,
-    NewRoomModalComponent
+    NewRoomFormComponent,
+    UpdateRoomFormComponent
   ],
   imports: [
     BrowserModule,
@@ -96,8 +99,10 @@ import { CategoriesService } from './_services/categories.service';
     UserComponent,
     ManagerComponent,
     DeleteEmployeeModalComponent,
-    NewRoomModalComponent,
-    UpdateEmployeeFormComponent
+    NewRoomFormComponent,
+    UpdateEmployeeFormComponent,
+    DeleteRoomModalComponent,
+    UpdateRoomFormComponent
   ],
   providers: [
     CategoriesService,

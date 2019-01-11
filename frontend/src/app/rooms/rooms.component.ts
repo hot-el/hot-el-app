@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoomService } from '../_services/room.service';
-import { Room } from '../_models/room';
+import { RoomModel } from '../_models/room-model';
 
 @Component({
   selector: 'app-rooms',
@@ -9,8 +9,8 @@ import { Room } from '../_models/room';
 })
 export class RoomsComponent implements OnInit {
 
-  rooms: Room[];
-  selectedRoom: Room;
+  rooms: RoomModel[];
+  selectedRoom: RoomModel;
 
   constructor(private roomService: RoomService) { }
 
@@ -18,8 +18,9 @@ export class RoomsComponent implements OnInit {
     this.getRooms();
   }
 
-  onSelect(room: Room): void {
+  onSelect(room: RoomModel): void {
     this.selectedRoom = room;
+    console.log(room);
   }
 
   getRooms(): void {

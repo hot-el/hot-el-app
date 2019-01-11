@@ -6,36 +6,42 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Room } from '../../_models/room';
 
 @Component({
-  selector: 'app-new-room-modal',
-  templateUrl: './new-room-modal.component.html',
-  exportAs: 'newRoomModal',
+  selector: 'app-new-room-form',
+  templateUrl: './new-room-form.component.html',
+  exportAs: 'newRoomForm',
   styleUrls: ['../../styles/modals.scss']
 })
 
-export class NewRoomModalComponent implements OnInit {
+export class NewRoomFormComponent implements OnInit {
 
   roomForm: FormGroup;
   roomDetailsForm: FormGroup;
   addRoomForm: FormGroup;
 
-  os = [
+  sizes = [
     2,
     4,
     6
   ];
 
+  types = [
+    'Premium',
+    'Basic'
+  ];
+
   validation_messages = {
-    'fullname': [
-      { type: 'required', message: 'Full name is required' }
+    'type': [
+      { type: 'required', message: 'Type is required' },
     ],
-    'bio': [
-      { type: 'maxlength', message: 'Bio cannot be more than 256 characters long' },
+    'number': [
+      { type: 'required', message: 'Please select room number' },
+      { type: 'pattern', message: 'You can pick only numbers' }
     ],
-    'os': [
+    'size': [
       { type: 'required', message: 'Please select number of people' },
     ],
-    'birthday': [
-      { type: 'required', message: 'Please insert your birthday' },
+    'dateConservation': [
+      { type: 'required', message: 'Please insert last conservation date' },
     ],
   };
 
@@ -43,7 +49,7 @@ export class NewRoomModalComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     public roomService: RoomService,
-    public thisDialogRef: MatDialogRef<NewRoomModalComponent>,
+    public thisDialogRef: MatDialogRef<NewRoomFormComponent>,
     @Inject(MAT_DIALOG_DATA) public modalData: any,
     private fb: FormBuilder
   ) {}
@@ -58,7 +64,7 @@ export class NewRoomModalComponent implements OnInit {
 
   onSubmit(values) {
     const data: Room = new Room();
-    data.roomNumber = values.roomNumber;
+    console.log(values);
 
     // create new room
     // this.roomService.createRoom(data)
@@ -69,34 +75,13 @@ export class NewRoomModalComponent implements OnInit {
   }
 
   createForms() {
-
     // room form validations
     this.roomForm = this.fb.group({
-      fullname: ['Homero Simpson', Validators.required ],
-      bio: ['Lorem Ipsum is simply dummy text of the printing.', Validators.maxLength(256)],
-      birthday: ['', Validators.required],
-      os: new FormControl(this.os[0], Validators.required)
+      type: [this.types[0], Validators.required ],
+      conservationDate: ['', Validators.required],
+      size: new FormControl(this.sizes[0], Validators.required),
+      number: ['', Validators.required]
     });
-
-
-    // user links form validations
-    this.roomDetailsForm = this.fb.group({
-      username: new FormControl('', Validators.compose([
-       Validators.maxLength(25),
-       Validators.minLength(5),
-       Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$'),
-       Validators.required
-      ]))
-    });
-
-    this.addRoomForm = this.fb.group(({
-        room: this.roomForm,
-        roomDetails: this.roomDetailsForm
-    }));
-  }
-
-  onSubmitRoomDetails(value) {
-    console.log(value);
   }
 
   onSubmitRoom(value) {
