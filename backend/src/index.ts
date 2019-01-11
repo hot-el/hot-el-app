@@ -1,10 +1,10 @@
-import {HotElApi} from './application';
+import {HotelRestApiApplication} from './application';
 import {ApplicationConfig} from '@loopback/core';
 
-export {HotElApi};
+export {HotelRestApiApplication};
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new HotElApi(options);
+  const app = new HotelRestApiApplication(options);
   await app.boot();
   await app.start();
 

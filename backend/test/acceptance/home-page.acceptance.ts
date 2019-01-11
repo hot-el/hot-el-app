@@ -4,11 +4,11 @@
 // License text available at https://opensource.org/licenses/MIT
 
 import {Client} from '@loopback/testlab';
-import {HotElApi} from '../..';
+import {HotelRestApiApplication} from '../..';
 import {setupApplication} from './test-helper';
 
 describe('HomePage', () => {
-  let app: HotElApi;
+  let app: HotelRestApiApplication;
   let client: Client;
 
   before('setupApplication', async () => {
