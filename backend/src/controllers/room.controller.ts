@@ -19,7 +19,7 @@ import {
 import {Room} from '../models';
 import {RoomRepository} from '../repositories';
 
-export class RoomControllerController {
+export class RoomController {
   constructor(
     @repository(RoomRepository)
     public roomRepository : RoomRepository,
