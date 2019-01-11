@@ -32,7 +32,7 @@ export class NewEmployeeModalComponent implements OnInit {
   }
 
   onCloseCancel() {
-    this.thisDialogRef.close();
+    this.thisDialogRef.close(null);
   }
 
   onSubmit(values) {

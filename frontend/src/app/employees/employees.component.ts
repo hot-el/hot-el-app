@@ -46,7 +46,9 @@ export class EmployeesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(employee => {
-      this.employees.push(employee);
+      if (employee !==  null) {
+        this.employees.push(employee);
+      }
     });
   }
 

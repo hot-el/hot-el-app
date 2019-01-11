@@ -34,8 +34,13 @@ import { NewEmployeeModalComponent } from './employees/new-employee/new-employee
 import { DeleteEmployeeModalComponent } from './employee-detail/delete-employee/delete-employee-modal.component';
 import { UpdateEmployeeModalComponent } from './employee-detail/update-employee/update-employee-modal.component';
 
+import { EmployeeFormComponent } from './employee-form/employee-form.component';
+import { UpdateEmployeeFormComponent } from './employee-form/update-employee/update-employee-form.component';
+
 import { EmployeeService } from './_services/employee.service';
 import { SharedModule } from './shared/shared.module';
+import { RoomCategoryComponent } from './room-category/room-category.component';
+import { CategoriesService } from './_services/categories.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +61,10 @@ import { SharedModule } from './shared/shared.module';
     EmployeeSearchComponent,
     NewEmployeeModalComponent,
     DeleteEmployeeModalComponent,
-    UpdateEmployeeModalComponent
+    UpdateEmployeeModalComponent,
+    RoomCategoryComponent,
+    EmployeeFormComponent,
+    UpdateEmployeeFormComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +100,10 @@ import { SharedModule } from './shared/shared.module';
     DeleteEmployeeModalComponent,
     UpdateEmployeeModalComponent,
   ],
-  providers: [],
+  providers: [
+    CategoriesService,
+    EmployeeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
