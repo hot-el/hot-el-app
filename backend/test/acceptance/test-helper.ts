@@ -1,4 +1,4 @@
-import {HotelRestApiApplication} from '../..';
+import {HotelapiApplication} from '../..';
 import {
   createRestAppClient,
   givenHttpServerConfig,
@@ -6,7 +6,7 @@ import {
 } from '@loopback/testlab';
 
 export async function setupApplication(): Promise<AppWithClient> {
-  const app = new HotelRestApiApplication({
+  const app = new HotelapiApplication({
     rest: givenHttpServerConfig(),
   });
 
@@ -19,6 +19,6 @@ export async function setupApplication(): Promise<AppWithClient> {
 }
 
 export interface AppWithClient {
-  app: HotelRestApiApplication;
+  app: HotelapiApplication;
   client: Client;
 }

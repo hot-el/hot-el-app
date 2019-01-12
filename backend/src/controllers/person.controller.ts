@@ -92,7 +92,7 @@ export class PersonController {
       },
     },
   })
-  async findById(@param.path.number('id') id: number): Promise<Person> {
+  async findById(@param.path.string('id') id: string): Promise<Person> {
     return await this.personRepository.findById(id);
   }
 
@@ -104,7 +104,7 @@ export class PersonController {
     },
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() person: Person,
   ): Promise<void> {
     await this.personRepository.updateById(id, person);
@@ -118,7 +118,7 @@ export class PersonController {
     },
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() person: Person,
   ): Promise<void> {
     await this.personRepository.replaceById(id, person);
@@ -131,7 +131,7 @@ export class PersonController {
       },
     },
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.personRepository.deleteById(id);
   }
 }
