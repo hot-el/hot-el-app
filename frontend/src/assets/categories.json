@@ -1,35 +1,35 @@
 [
     {
-      "slug": "premium-apartament",
+      "slug": "Premium",
       "title": "Premium apartament",
-      "image": "https://angular.io/assets/images/logos/angular/angular.svg",
+      "image": "https://www.gravatar.com/avatar/744f47d2cc92ee4b02ebad5fb363925c",
       "description": "Premium apartamens are higher standards rooms with better look",
       "tags": [
         {
-          "name": "2 os."
+          "name": "2"
         },
         {
-          "name": "4 os."
+          "name": "4"
         },
         {
-          "name": "6 os."
+          "name": "6"
         }
       ]
     },
     {
-      "slug": "basic-apartament",
+      "slug": "Basic",
       "title": "Basic apartament",
-      "image": "https://s.gravatar.com/avatar/3e2b342616822f8eabc9dd393840db4a?size=496&default=retro",
+      "image": "https://www.gravatar.com/avatar/fe11d0ca47a111f9b2c7420c91c2d205",
       "description": "Basic apartaments are good looking rooms.",
       "tags":[
         {
-            "name": "2 os."
+            "name": "2"
           },
           {
-            "name": "4 os."
+            "name": "4"
           },
           {
-            "name": "6 os."
+            "name": "6"
           }
       ]
     }

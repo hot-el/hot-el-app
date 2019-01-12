@@ -14,7 +14,7 @@
           <div matLine class="list-line">
             <mat-chip-list>
               <!-- <mat-chip *ngFor="let tag of category.tags">{{tag.name}}</mat-chip> -->
-              <a mat-mini-fab *ngFor="let tag of category.tags" [routerLink]="['/rooms/', category.slug]">{{tag.name}}</a>
+              <a mat-mini-fab *ngFor="let tag of category.tags" [routerLink]="['/rooms/', category.slug, tag.name]">{{tag.name}} os.</a>
             </mat-chip-list>
           </div>
         </mat-list-item>
