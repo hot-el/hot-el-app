@@ -10,7 +10,7 @@ import {ServiceMixin} from '@loopback/service-proxy';
 import * as path from 'path';
 import {MySequence} from './sequence';
 
-export class HotelRestApiApplication extends BootMixin(
+export class HotelapiApplication extends BootMixin(
   ServiceMixin(RepositoryMixin(RestApplication)),
 ) {
   constructor(options: ApplicationConfig = {}) {

@@ -4,15 +4,15 @@ import {Entity, model, property} from '@loopback/repository';
 export class User extends Entity {
   @property({
     type: 'string',
+    id: true,
+  })
+  id?: string;
+
+  @property({
+    type: 'string',
     required: true,
   })
   username: string;
-
-  @property({
-    type: 'number',
-    id: true,
-  })
-  id?: number;
 
   @property({
     type: 'string',
@@ -21,9 +21,15 @@ export class User extends Entity {
   password: string;
 
   @property({
-    type: 'object',
+    type: 'string',
   })
-  person?: object;
+  email?: string;
+
+  @property({
+    type: 'array',
+    itemType: 'string',
+  })
+  assigment?: string[];
 
   @property({
     type: 'boolean',

@@ -3,10 +3,11 @@ import {Entity, model, property} from '@loopback/repository';
 @model()
 export class Room extends Entity {
   @property({
-    type: 'number',
+    type: 'string',
     id: true,
+    required: false,
   })
-  id?: number;
+  id: string;
 
   @property({
     type: 'string',
@@ -16,14 +17,17 @@ export class Room extends Entity {
 
   @property({
     type: 'string',
+    required: true,
+    default: "basic",
   })
-  type?: string;
+  type: string;
 
   @property({
     type: 'number',
+    required: true,
     default: 2,
   })
-  size?: number;
+  size: number;
 
   @property({
     type: 'date',
