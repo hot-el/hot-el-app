@@ -3,3 +3,4 @@ export * from './room.controller';
 export * from './user.controller';
 export * from './person.controller';
 export * from './role.controller';
+export * from './address.controller';

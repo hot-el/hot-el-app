@@ -1,4 +1,5 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasOne} from '@loopback/repository';
+import { Person } from './person.model';
 
 @model()
 export class User extends Entity {
@@ -29,7 +30,7 @@ export class User extends Entity {
     type: 'array',
     itemType: 'string',
   })
-  assigment?: string[];
+  role?: string[];
 
   @property({
     type: 'boolean',
@@ -37,6 +38,9 @@ export class User extends Entity {
     default: false,
   })
   isPasswordChangeRequired: boolean;
+
+  @hasOne(() => Person, { keyTo: 'personId' })
+  person?: Person;
 
   constructor(data?: Partial<User>) {
     super(data);
