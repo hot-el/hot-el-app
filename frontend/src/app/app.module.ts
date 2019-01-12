@@ -22,6 +22,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { RoomCategoryComponent } from './room-category/room-category.component';
 import { CategoriesService } from './_services/categories.service';
 import { NewRoomFormComponent } from './room-category/new-room/new-room-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { NewRoomFormComponent } from './room-category/new-room/new-room-form.com
     MaterialModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   entryComponents: [
     LoginComponent,

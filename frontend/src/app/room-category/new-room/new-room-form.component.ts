@@ -1,9 +1,9 @@
 import { Component, OnInit, EventEmitter, Output, Inject} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Validators, FormGroup, FormControl, FormBuilder} from '@angular/forms';
-import { RoomService } from '../../_services/room.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Room } from '../../_models/room';
+import { Rooms } from 'src/app/_models/rooms';
+import { RoomsService } from '../../_services/rooms.service';
 
 @Component({
   selector: 'app-new-room-form',
@@ -48,7 +48,7 @@ export class NewRoomFormComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    public roomService: RoomService,
+    public roomsService: RoomsService,
     public thisDialogRef: MatDialogRef<NewRoomFormComponent>,
     @Inject(MAT_DIALOG_DATA) public modalData: any,
     private fb: FormBuilder
@@ -63,9 +63,9 @@ export class NewRoomFormComponent implements OnInit {
   }
 
   onSubmit(values) {
-    const data: Room = new Room();
+    const data: Rooms = new Rooms();
     console.log(values);
-
+    this.add(values);
     // create new room
     // this.roomService.createRoom(data)
     // .subscribe(name => {
@@ -76,6 +76,7 @@ export class NewRoomFormComponent implements OnInit {
 
   createForms() {
     // room form validations
+    console.log('creating forms');
     this.roomForm = this.fb.group({
       type: [this.types[0], Validators.required ],
       conservationDate: ['', Validators.required],
@@ -86,6 +87,16 @@ export class NewRoomFormComponent implements OnInit {
 
   onSubmitRoom(value) {
     console.log(value);
+    value.number = value.number.toString();
+    console.log(value);
+    this.add(value);
+  }
+
+  add(room): void {
+    if (!room) { return; }
+    console.log('add');
+    this.roomsService.addRoom(room)
+      .subscribe();
   }
 
 }
