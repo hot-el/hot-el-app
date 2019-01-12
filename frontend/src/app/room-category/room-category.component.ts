@@ -28,11 +28,9 @@ export class RoomCategoryComponent implements OnInit {
         categories => {
           this.categories = categories;
       });
-      console.log(this.categories);
     }
 
     openNewRoomForm() {
-      console.log('hello');
       this.dialog.open(NewRoomFormComponent);
     }
 }

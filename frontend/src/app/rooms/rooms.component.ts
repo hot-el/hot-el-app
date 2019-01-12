@@ -27,11 +27,11 @@ export class RoomsComponent implements OnInit {
     console.log(this.category);
   }
 
-  onSelect(room: Room): void {
-    this.selectedRoom = room;
-    console.log('selectedRoom');
-    console.log(room);
-  }
+  // onSelect(room: Room): void {
+  //   this.selectedRoom = room;
+  //   console.log('selectedRoom');
+  //   console.log(room);
+  // }
 
   getRooms(): void {
     this.roomsService.getRooms().subscribe(rooms => this.rooms = rooms);

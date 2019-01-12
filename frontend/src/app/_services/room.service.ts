@@ -21,6 +21,11 @@ export class RoomsService {
     return this.http.get<Room[]>(this.roomsUrl);
   }
 
+  getRoom (id: string): Observable<Room> {
+    const url = `${this.roomsUrl}/${id}`;
+    return this.http.get<Room>(url);
+  }
+
   addRoom (room: Room): Observable<Room> {
     // console.log('addRoom');
     return this.http.post<Room>(this.roomsUrl, room, httpOptions);

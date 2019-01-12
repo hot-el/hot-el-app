@@ -5,6 +5,8 @@ import { DeleteRoomModalComponent } from './delete-room/delete-room-modal.compon
 import { MatDialog } from '@angular/material';
 import { RoomsService } from '../_services/room.service';
 import { UpdateRoomFormComponent } from './update-room/update-room-form.component';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-room-details',
@@ -16,12 +18,15 @@ export class RoomDetailComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private roomsService: RoomsService
+    private roomsService: RoomsService,
+    private route: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit() {
     console.log('Room Details activated');
     console.log(this.room);
+    this.getRoom();
   }
 
   openDeleteRoomModal(room: Room) {
@@ -32,6 +37,7 @@ export class RoomDetailComponent implements OnInit {
     dialogRef.afterClosed().subscribe(confirm => {
       if (confirm) {
         this.delete(room);
+        this.location.back();
         // this.router.navigateByUrl('/Rooms');
         // refresh the Rooms list
         // const index = this.Rooms.findIndex((Room) => Room.id === RoomId);
@@ -58,5 +64,24 @@ export class RoomDetailComponent implements OnInit {
     const dialogRef = this.dialog.open(UpdateRoomFormComponent, {
       data: { room: room }
     });
+
+    dialogRef.afterClosed().subscribe(() => {
+      console.log('heyhey');
+      this.getRoom();
+      console.log('heykey2');
+    });
+
   }
+
+  getRoom(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
+    this.roomsService.getRoom(id)
+      .subscribe(room => this.room = room);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
 }

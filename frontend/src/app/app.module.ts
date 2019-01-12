@@ -58,7 +58,8 @@ import { UpdateRoomFormComponent } from './room-details/update-room/update-room-
     ManagerComponent,
     NewRoomFormComponent,
     DeleteRoomModalComponent,
-    UpdateRoomFormComponent
+    UpdateRoomFormComponent,
+    RoomDetailComponent
   ],
   providers: [
     CategoriesService

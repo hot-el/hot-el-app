@@ -3,12 +3,9 @@
         <mat-card-title>Rooms</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <mat-action-list>
-            <button mat-list-item *ngFor="let room of rooms"
-              (click)="onSelect(room)">
-                Room {{room.number}}
-            </button>
-            <app-room-details [room]="selectedRoom"></app-room-details>
-        </mat-action-list>
+        <mat-nav-list>
+            <a mat-raised-button *ngFor="let room of rooms" [routerLink]="['/details/', room.id]">Room {{room.number}} </a>
+         </mat-nav-list>
+         <p>hi</p>
     </mat-card-content>
 </mat-card>
