@@ -34,6 +34,12 @@ export class Room extends Entity {
   })
   conservationDate?: string;
 
+  @property({
+    type: 'boolean',
+    default: false,
+  })
+  occupied: boolean;
+
   constructor(data?: Partial<Room>) {
     super(data);
   }
