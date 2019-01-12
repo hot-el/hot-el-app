@@ -15,7 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RoomsComponent } from './rooms/rooms.component';
-import { RoomDetailComponent } from './room-detail/room-detail.component';
+import { RoomDetailComponent } from './room-details/room-detail.component';
 import { ManagerComponent } from './manager/manager.component';
 import { UserComponent } from './user/user.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
@@ -23,6 +23,8 @@ import { RoomCategoryComponent } from './room-category/room-category.component';
 import { CategoriesService } from './_services/categories.service';
 import { NewRoomFormComponent } from './room-category/new-room/new-room-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DeleteRoomModalComponent } from './room-details/delete-room/delete-room-modal.component';
+import { UpdateRoomFormComponent } from './room-details/update-room/update-room-form.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
     UserComponent,
     MainNavComponent,
     RoomCategoryComponent,
-    NewRoomFormComponent
+    NewRoomFormComponent,
+    DeleteRoomModalComponent,
+    UpdateRoomFormComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     UserComponent,
     ManagerComponent,
-    NewRoomFormComponent
+    NewRoomFormComponent,
+    DeleteRoomModalComponent,
+    UpdateRoomFormComponent
   ],
   providers: [
     CategoriesService

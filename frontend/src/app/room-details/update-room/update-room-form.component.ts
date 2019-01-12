@@ -1,23 +1,24 @@
-import { Component, OnInit, EventEmitter, Output, Inject} from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Inject, Input} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Validators, FormGroup, FormControl, FormBuilder} from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Room } from 'src/app/_models/room';
-// import { Room } from '../../../../../backend/src/models/room.model';
 import { RoomsService } from '../../_services/room.service';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+// import { Room } from '../../../../../backend/src/models/room.model';
+import { Room } from 'src/app/_models/room';
 
 @Component({
-  selector: 'app-new-room-form',
-  templateUrl: './new-room-form.component.html',
-  exportAs: 'newRoomForm',
+  selector: 'app-update-room-form',
+  templateUrl: './update-room-form.component.html',
+  exportAs: 'updateRoomForm',
   styleUrls: ['../../styles/modals.scss']
 })
 
-export class NewRoomFormComponent implements OnInit {
+export class UpdateRoomFormComponent implements OnInit {
 
+  room: Room;
   roomForm: FormGroup;
   roomDetailsForm: FormGroup;
-  addRoomForm: FormGroup;
+  updateRoomForm: FormGroup;
 
   sizes = [
     2,
@@ -50,12 +51,15 @@ export class NewRoomFormComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     public roomsService: RoomsService,
-    public thisDialogRef: MatDialogRef<NewRoomFormComponent>,
+    public thisDialogRef: MatDialogRef<UpdateRoomFormComponent>,
     @Inject(MAT_DIALOG_DATA) public modalData: any,
     private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
+    this.room = this.modalData.room;
+    console.log(this.room);
+    console.log(this.room.id);
     this.createForms();
   }
 
@@ -64,9 +68,9 @@ export class NewRoomFormComponent implements OnInit {
   }
 
   onSubmit(values) {
-    // const data: Room = new Room();
-    console.log(values);
-    this.add(values);
+    this.room = values;
+    console.log(this.room);
+
     // create new room
     // this.roomService.createRoom(data)
     // .subscribe(name => {
@@ -77,31 +81,22 @@ export class NewRoomFormComponent implements OnInit {
 
   createForms() {
     // room form validations
-    console.log('creating forms');
     this.roomForm = this.fb.group({
-      type: [this.types[0], Validators.required ],
-      conservationDate: ['', Validators.required],
-      size: new FormControl(this.sizes[0], Validators.required),
-      number: ['', Validators.required]
+      type: [this.room.type, Validators.required ],
+      conservationDate: [this.room.conservationDate, Validators.required],
+      size: new FormControl(this.room.size, Validators.required),
+      number: [this.room.number, Validators.required]
     });
   }
 
-  onSubmitRoom(value) {
-    console.log(value);
-    value.number = value.number.toString();
-    console.log(value);
-    this.add(value);
+  onSubmitRoom(values) {
+    console.log(this.room.id);
+    console.log('onSubmit');
+    this.roomsService.updateRoom(values, this.room.id)
+       .subscribe(room => {
+      this.thisDialogRef.close(room);
+      this.roomForm.reset();
+    });
   }
-
-  add(room): void {
-    if (!room) { return; }
-    console.log('add');
-    this.roomsService.addRoom(room)
-      .subscribe(res => {
-        this.thisDialogRef.close(res);
-        this.roomForm.reset();
-      });
-  }
-
 }
 
