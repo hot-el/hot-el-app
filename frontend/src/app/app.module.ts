@@ -15,7 +15,6 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { ManagerComponent } from './manager/manager.component';
 import { UserComponent } from './user/user.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 
 @NgModule({
@@ -28,7 +27,6 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     RoomDetailComponent,
     ManagerComponent,
     UserComponent,
-    DashboardComponent,
     MainNavComponent
   ],
   imports: [
