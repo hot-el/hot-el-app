@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpModule } from '@angular/http';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MaterialModule} from './material-module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +19,9 @@ import { RoomDetailComponent } from './room-detail/room-detail.component';
 import { ManagerComponent } from './manager/manager.component';
 import { UserComponent } from './user/user.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { RoomCategoryComponent } from './room-category/room-category.component';
+import { CategoriesService } from './_services/categories.service';
+import { NewRoomFormComponent } from './room-category/new-room/new-room-form.component';
 
 @NgModule({
   declarations: [
@@ -27,20 +33,28 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     RoomDetailComponent,
     ManagerComponent,
     UserComponent,
-    MainNavComponent
+    MainNavComponent,
+    RoomCategoryComponent,
+    NewRoomFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     LoginComponent,
     UserComponent,
-    ManagerComponent
+    ManagerComponent,
+    NewRoomFormComponent
   ],
-  providers: [],
+  providers: [
+    CategoriesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
