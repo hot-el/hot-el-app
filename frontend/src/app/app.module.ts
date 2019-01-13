@@ -25,6 +25,11 @@ import { NewRoomFormComponent } from './room-category/new-room/new-room-form.com
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteRoomModalComponent } from './room-details/delete-room/delete-room-modal.component';
 import { UpdateRoomFormComponent } from './room-details/update-room/update-room-form.component';
+import { ReceptionistComponent } from './receptionist/receptionist.component';
+import { MakeReservationComponent } from './make-reservation/make-reservation.component';
+import { RoomsToReserveComponent } from './make-reservation/rooms-to-reserve/rooms-to-reserve.component';
+import { ReserveRoomComponent } from './make-reservation/reserve-room/reserve-room.component';
+import { NewReservationFormComponent } from './make-reservation/reserve-room/new-reservation/new-reservation-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +45,12 @@ import { UpdateRoomFormComponent } from './room-details/update-room/update-room-
     RoomCategoryComponent,
     NewRoomFormComponent,
     DeleteRoomModalComponent,
-    UpdateRoomFormComponent
+    UpdateRoomFormComponent,
+    ReceptionistComponent,
+    MakeReservationComponent,
+    RoomsToReserveComponent,
+    ReserveRoomComponent,
+    NewReservationFormComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +69,8 @@ import { UpdateRoomFormComponent } from './room-details/update-room/update-room-
     NewRoomFormComponent,
     DeleteRoomModalComponent,
     UpdateRoomFormComponent,
-    RoomDetailComponent
+    RoomDetailComponent,
+    NewReservationFormComponent
   ],
   providers: [
     CategoriesService

@@ -2,16 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CategoryModel } from '../_models/category.model';
 import { CategoriesService } from '../_services/categories.service';
-import { NewRoomFormComponent } from './new-room/new-room-form.component';
 import { MatDialog } from '@angular/material';
 
 @Component({
-  selector: 'app-room-category',
-  templateUrl: './room-category.component.html',
-  styleUrls: ['./room-category.component.scss']
+  selector: 'app-make-reservation',
+  templateUrl: './make-reservation.component.html',
+  styleUrls: ['./make-reservation.component.scss']
 })
-
-export class RoomCategoryComponent implements OnInit {
+export class MakeReservationComponent implements OnInit {
 
   categories: CategoryModel[];
 
@@ -28,9 +26,7 @@ export class RoomCategoryComponent implements OnInit {
         categories => {
           this.categories = categories;
       });
-    }
+  }
 
-    openNewRoomForm() {
-      this.dialog.open(NewRoomFormComponent);
-    }
 }
+

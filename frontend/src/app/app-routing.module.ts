@@ -6,6 +6,10 @@ import { ManagerComponent } from './manager/manager.component';
 import { RoomCategoryComponent } from './room-category/room-category.component';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomDetailComponent } from './room-details/room-detail.component';
+import { ReceptionistComponent } from './receptionist/receptionist.component';
+import { MakeReservationComponent } from './make-reservation/make-reservation.component';
+import { RoomsToReserveComponent } from './make-reservation/rooms-to-reserve/rooms-to-reserve.component';
+import { ReserveRoomComponent } from './make-reservation/reserve-room/reserve-room.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,7 +19,11 @@ const routes: Routes = [
   { path: 'room-categories', component: RoomCategoryComponent },
   { path: 'rooms/:categorySlug/:size', component: RoomsComponent },
   { path: 'details/:id', component: RoomDetailComponent },
-  { path: 'rooms/rooms', component: RoomDetailComponent }
+  { path: 'rooms/rooms', component: RoomDetailComponent },
+  { path: 'receptionist', component: ReceptionistComponent },
+  { path: 'reservation', component: MakeReservationComponent},
+  { path: 'rooms-to-reserve/:categorySlug/:size', component: RoomsToReserveComponent},
+  { path: 'new-reservation/:id', component: ReserveRoomComponent }
 ];
 
 @NgModule({
