@@ -4,4 +4,5 @@ export class Room {
     type: string;
     conservationDate: Date;
     size: number;
+    occupied: boolean;
 }

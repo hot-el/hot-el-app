@@ -21,6 +21,11 @@ export class RoomsService {
     return this.http.get<Room[]>(this.roomsUrl);
   }
 
+  getUnreservedRooms (): Observable<Room[]> {
+    const url = `${this.roomsUrl}?filter[where][occupied]=false}`;
+    return this.http.get<Room[]>(url);
+  }
+
   getRoom (id: string): Observable<Room> {
     const url = `${this.roomsUrl}/${id}`;
     return this.http.get<Room>(url);
@@ -42,8 +47,21 @@ export class RoomsService {
     return this.http.get<Room[]>(url, httpOptions);
   }
 
+  getUnreservedRoomsByCategory(category: string) {
+    const url = `${this.roomsUrl}?filter[where][type]=${category}&filter[where][occupied]=false`;
+    console.log(url);
+    return this.http.get<Room[]>(url, httpOptions);
+  }
+
   getRoomsByCategoryAndSize(category: string, size: string) {
     const url = `${this.roomsUrl}?filter[where][type]=${category}&filter[where][size]=${size}`;
+    console.log(url);
+    return this.http.get<Room[]>(url, httpOptions);
+  }
+
+  getUnreservedRoomsByCategoryAndSize(category: string, size: string) {
+    const url = `${this.roomsUrl}?filter[where][type]=${category}&filter[where][size]=${size}&filter[where][occupied]=false`;
+    console.log(url);
     return this.http.get<Room[]>(url, httpOptions);
   }
 
